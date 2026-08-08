@@ -1,26 +1,193 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #faf9f7;
+  --foreground: #3d2b1f;
+  --muted: #7a6558;
+  --border: rgba(111, 78, 55, 0.14);
+  --card: #ffffff;
+  --coffee: #6f4e37;
+  --coffee-light: #a67b5b;
+  --cream: #f5e6d3;
+  --sky: #38bdf8;
+  --sky-light: #87ceeb;
+  --sky-dark: #0284c7;
+  --accent: #38bdf8;
+  --accent-secondary: #6f4e37;
+  --glow: rgba(56, 189, 248, 0.25);
+  --spotlight: rgba(56, 189, 248, 0.08);
+  --nav-top: 2rem;
+  --nav-height: 3.5rem;
+  --nav-gap: 2rem;
+  --nav-offset: calc(var(--nav-top) + var(--nav-height) + var(--nav-gap));
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-coffee: var(--coffee);
+  --color-coffee-light: var(--coffee-light);
+  --color-cream: var(--cream);
+  --color-sky: var(--sky);
+  --color-sky-light: var(--sky-light);
+  --color-sky-dark: var(--sky-dark);
+  --color-accent: var(--accent);
+  --color-accent-secondary: var(--accent-secondary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .section-eyebrow {
+    font-family: var(--font-heading), var(--font-geist-sans), system-ui, sans-serif;
   }
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
 body {
-  background: var(--background);
+  background: transparent;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+.site-bg-fixed {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url("/bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.35);
+  color: var(--foreground);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--coffee) 0%, var(--coffee-light) 45%, var(--sky-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-border {
+  position: relative;
+  background: linear-gradient(var(--card), var(--card)) padding-box,
+    linear-gradient(135deg, rgba(56, 189, 248, 0.5), rgba(111, 78, 55, 0.4)) border-box;
+  border: 1px solid transparent;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+}
+
+.grid-bg {
+  background-image: linear-gradient(rgba(111, 78, 55, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(111, 78, 55, 0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 70%);
+}
+
+.noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(56, 189, 248, 0.12) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.5s infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  header,
+  footer {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+  }
 }
