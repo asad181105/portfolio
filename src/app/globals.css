@@ -16,10 +16,60 @@
   --accent-secondary: #6f4e37;
   --glow: rgba(56, 189, 248, 0.25);
   --spotlight: rgba(56, 189, 248, 0.08);
-  --nav-top: 2rem;
+  --nav-top: 0.75rem;
   --nav-height: 3.5rem;
-  --nav-gap: 2rem;
+  --nav-gap: 1rem;
   --nav-offset: calc(var(--nav-top) + var(--nav-height) + var(--nav-gap));
+  --page-px: 1rem;
+  --section-gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --nav-top: 1rem;
+    --page-px: 1.5rem;
+    --section-gap: 2.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --nav-gap: 1.5rem;
+    --page-px: 2.5rem;
+    --section-gap: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --nav-top: 1.5rem;
+    --nav-gap: 1.75rem;
+    --page-px: 4rem;
+    --section-gap: 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --nav-top: 2rem;
+    --nav-gap: 2rem;
+    --page-px: 6rem;
+    --section-gap: 4.375rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  :root {
+    --page-px: 6.25rem;
+  }
+}
+
+.site-gutter-x {
+  padding-inline: var(--page-px);
+}
+
+.site-section-gap {
+  gap: var(--section-gap);
 }
 
 @theme inline {

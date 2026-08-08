@@ -39,10 +39,10 @@ export default function RootLayout({
         <PersonJsonLd />
         <AppProviders>
           <Navbar />
-          <main className="relative flex min-h-screen flex-col gap-[70px] px-[100px] pt-[var(--nav-offset)]">
+          <main className="site-gutter-x relative flex min-h-screen flex-col site-section-gap pt-[var(--nav-offset)]">
             {children}
           </main>
-          <div className="px-[100px] pb-5 pt-[70px]">
+          <div className="site-gutter-x pb-5 pt-8 md:pt-12 lg:pt-[70px]">
             <Footer />
           </div>
         </AppProviders>

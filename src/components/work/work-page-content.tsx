@@ -25,14 +25,14 @@ export function WorkPageContent() {
     <SectionShell>
       <div className="py-8 md:py-10">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
-          <div className="mb-8 flex flex-wrap gap-2 rounded-2xl border border-border bg-cream/30 p-1.5">
+          <div className="mb-6 flex flex-col gap-2 rounded-2xl border border-border bg-cream/30 p-1.5 sm:mb-8 sm:flex-row sm:flex-wrap">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveTab(tab.id)}
                 className={cn(
-                  "relative flex-1 rounded-xl px-4 py-2.5 text-sm font-medium transition sm:flex-none sm:px-6",
+                  "relative w-full rounded-xl px-3 py-2.5 text-xs font-medium transition sm:w-auto sm:flex-1 sm:px-4 sm:text-sm md:flex-none md:px-6",
                   activeTab === tab.id
                     ? "text-coffee"
                     : "text-muted hover:text-coffee"

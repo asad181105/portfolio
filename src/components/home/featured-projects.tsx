@@ -16,8 +16,8 @@ const featured = projects.filter((p) => p.featured).slice(0, 3);
 export function FeaturedProjects() {
   return (
     <SectionShell>
-      <div className="py-12 md:py-16">
-      <div className="mx-auto max-w-7xl px-4 md:px-6">
+      <div className="py-8 sm:py-12 md:py-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <ScrollReveal className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
           <div>
             <p className="section-eyebrow text-sm uppercase tracking-widest text-sky-dark mb-4">

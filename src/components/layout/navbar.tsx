@@ -28,12 +28,12 @@ export function Navbar() {
 
   return (
     <header
-      className="fixed left-0 right-0 z-50 px-[100px] pointer-events-none"
+      className="site-gutter-x fixed left-0 right-0 z-50 pointer-events-none"
       style={{ top: "var(--nav-top)" }}
     >
       <nav
         className={cn(
-          "pointer-events-auto flex h-14 w-full items-center justify-between rounded-[2rem] border border-white/70 px-3 md:px-5 transition-all duration-300",
+          "pointer-events-auto flex h-12 w-full items-center justify-between rounded-2xl border border-white/70 px-2.5 transition-all duration-300 sm:h-14 sm:rounded-[2rem] sm:px-3 md:px-5",
           scrolled
             ? "bg-white/95 backdrop-blur-xl shadow-lg shadow-coffee/10"
             : "bg-white/80 backdrop-blur-md shadow-md shadow-coffee/5"
@@ -103,7 +103,7 @@ export function Navbar() {
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            className="pointer-events-auto mt-2 w-full overflow-hidden rounded-[2rem] border border-white/70 bg-white/95 backdrop-blur-xl shadow-lg lg:hidden"
+            className="pointer-events-auto mt-2 w-full overflow-hidden rounded-2xl border border-white/70 bg-white/95 backdrop-blur-xl shadow-lg sm:rounded-[2rem] lg:hidden"
           >
             <div className="flex flex-col gap-1 p-4">
               <Link

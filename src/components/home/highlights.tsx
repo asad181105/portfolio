@@ -41,9 +41,9 @@ const highlights = [
 export function Highlights() {
   return (
     <SectionShell id="highlights">
-      <div className="py-12 md:py-16">
+      <div className="py-8 sm:py-12 md:py-16">
       <GsapParallax>
-      <div className="mx-auto max-w-7xl px-4 md:px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <ScrollReveal className="text-center mb-10">
           <p className="section-eyebrow text-sm uppercase tracking-widest text-sky-dark mb-4">
             What I Do
@@ -63,14 +63,14 @@ export function Highlights() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group block rounded-2xl border border-border bg-card p-8 transition hover:border-sky/40 hover:shadow-md hover:shadow-sky/10 h-full"
+                    className="group block h-full rounded-2xl border border-border bg-card p-5 transition hover:border-sky/40 hover:shadow-md hover:shadow-sky/10 sm:p-8"
                   >
                     <HighlightCardContent item={item} />
                   </a>
                 ) : (
                   <Link
                     href={item.href}
-                    className="group block rounded-2xl border border-border bg-card p-8 transition hover:border-sky/40 hover:shadow-md hover:shadow-sky/10 h-full"
+                    className="group block h-full rounded-2xl border border-border bg-card p-5 transition hover:border-sky/40 hover:shadow-md hover:shadow-sky/10 sm:p-8"
                   >
                     <HighlightCardContent item={item} />
                   </Link>
