@@ -9,6 +9,7 @@ export const siteConfig = {
     "Final-year B.Tech Computer Science student at SNIST skilled in software engineering, data science, and data analytics. Building AI products, web platforms, and real-world solutions through startups, hackathons, and hands-on projects.",
   url: siteUrl,
   ogImage: "/hero.jpg",
+  favicon: "/favicon.png",
   email: "asadmohammed181105@gmail.com",
   phone: "+91 82475 79990",
   location: "Hyderabad, India",

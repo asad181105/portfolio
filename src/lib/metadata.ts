@@ -20,6 +20,11 @@ export function createMetadata({
     title: pageTitle,
     description: pageDescription,
     metadataBase: new URL(siteConfig.url),
+    icons: {
+      icon: [{ url: siteConfig.favicon, type: "image/png" }],
+      shortcut: siteConfig.favicon,
+      apple: siteConfig.favicon,
+    },
     openGraph: {
       title: pageTitle,
       description: pageDescription,

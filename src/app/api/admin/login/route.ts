@@ -9,7 +9,7 @@ import {
 export async function POST(request: Request) {
   if (!isAdminConfigured()) {
     return NextResponse.json(
-      { error: "Admin is not configured on the server." },
+      { error: "Admin is not configured. Set ADMIN_PASSWORD and ADMIN_SESSION_SECRET in your server environment (e.g. Vercel → Settings → Environment Variables), then redeploy." },
       { status: 503 }
     );
   }

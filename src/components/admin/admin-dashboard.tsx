@@ -14,7 +14,7 @@ function formatDate(value: string) {
   }).format(new Date(value));
 }
 
-export function AdminDashboard() {
+export function AdminDashboard({ configured }: { configured: boolean }) {
   const [authenticated, setAuthenticated] = useState(false);
   const [checkingAuth, setCheckingAuth] = useState(true);
   const [password, setPassword] = useState("");
@@ -104,6 +104,42 @@ export function AdminDashboard() {
       )
     );
   };
+
+  if (!configured) {
+    return (
+      <SectionShell>
+        <div className="mx-auto max-w-lg p-8 md:p-10">
+          <h1 className="text-2xl font-bold text-coffee mb-2">Admin not configured</h1>
+          <p className="text-sm text-muted mb-4 leading-relaxed">
+            The admin dashboard needs server environment variables. Your local{" "}
+            <code className="rounded bg-cream px-1.5 py-0.5 text-coffee">.env.local</code>{" "}
+            is not deployed to production.
+          </p>
+          <p className="text-sm text-muted mb-4 leading-relaxed">
+            In Vercel, go to <strong>Project → Settings → Environment Variables</strong>{" "}
+            and add:
+          </p>
+          <ul className="mb-6 space-y-2 text-sm text-muted">
+            <li>
+              <code className="rounded bg-cream px-1.5 py-0.5 text-coffee">ADMIN_PASSWORD</code>
+            </li>
+            <li>
+              <code className="rounded bg-cream px-1.5 py-0.5 text-coffee">ADMIN_SESSION_SECRET</code>
+            </li>
+            <li>
+              <code className="rounded bg-cream px-1.5 py-0.5 text-coffee">NEXT_PUBLIC_SUPABASE_URL</code>
+            </li>
+            <li>
+              <code className="rounded bg-cream px-1.5 py-0.5 text-coffee">SUPABASE_SERVICE_ROLE_KEY</code>
+            </li>
+          </ul>
+          <p className="text-sm text-muted">
+            Redeploy after saving, then return here to sign in.
+          </p>
+        </div>
+      </SectionShell>
+    );
+  }
 
   if (checkingAuth) {
     return (
